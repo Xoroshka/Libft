@@ -22,9 +22,9 @@ DEPS_BONUS := $(SRC_BONUS:.c=.d)
 
 $(NAME): $(NAME)($(OBJ))
 
-all: $(NAME)
+bonus: $(NAME)($(OBJ_BONUS))
 
-bonus: $(NAME)($(OBJ_BONUS) $(OBJ))
+all: $(NAME) bonus
 
 -include $(DEPS) $(DEPS_BONUS)
 
@@ -34,4 +34,4 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean all
+re: fclean $(NAME)
