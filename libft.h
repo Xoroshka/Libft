@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/18 23:09:10 by clovella          #+#    #+#             */
+/*   Updated: 2021/10/18 23:12:59 by clovella         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
 # define LIBFT_H
+
 typedef unsigned long int	t_lw;
 typedef struct s_str {
 	char	*ptr;
