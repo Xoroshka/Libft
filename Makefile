@@ -1,6 +1,6 @@
 CC := clang
 CFLAGS := -Wall -Wextra -Werror -O2 -MMD
-ARFLAGS := rsU
+ARFLAGS := rs
 NAME := libft.a
 LIBNAME := libft
 
