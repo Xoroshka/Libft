@@ -6,10 +6,11 @@
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 04:05:27 by clovella          #+#    #+#             */
-/*   Updated: 2021/10/12 01:06:37 by clovella         ###   ########.fr       */
+/*   Updated: 2021/10/23 01:40:01 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)

@@ -6,10 +6,11 @@
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 04:05:18 by clovella          #+#    #+#             */
-/*   Updated: 2021/10/13 05:03:41 by clovella         ###   ########.fr       */
+/*   Updated: 2021/10/23 01:39:45 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 static int	in_set(const char *set, const char c)

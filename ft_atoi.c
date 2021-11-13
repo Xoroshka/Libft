@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 03:43:16 by clovella          #+#    #+#             */
-/*   Updated: 2021/10/13 04:58:36 by clovella         ###   ########.fr       */
+/*   Updated: 2021/10/23 01:14:34 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	ft_isspace(char c)
 		|| c == '\f' || c == '\r' || c == ' ');
 }
 
-static int	ft_skpspsign(const char **ss)
+static int	pop_sign(const char **ss)
 {
 	const char	*s;
 	int			sign;
@@ -45,7 +45,7 @@ static long int	ft_atol(const char *s)
 	unsigned char	c;
 	int				sign;
 
-	sign = ft_skpspsign(&s);
+	sign = pop_sign(&s);
 	acc = 0;
 	while (*s >= '0' && *s <= '9')
 	{
