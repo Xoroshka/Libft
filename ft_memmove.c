@@ -6,11 +6,11 @@
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 03:55:18 by clovella          #+#    #+#             */
-/*   Updated: 2021/10/11 03:56:24 by clovella         ###   ########.fr       */
+/*   Updated: 2021/11/16 02:52:41 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

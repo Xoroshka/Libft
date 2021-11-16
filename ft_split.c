@@ -6,14 +6,14 @@
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 03:59:53 by clovella          #+#    #+#             */
-/*   Updated: 2021/11/14 00:09:18 by clovella         ###   ########.fr       */
+/*   Updated: 2021/11/16 02:57:03 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int	count_parts(char const *s, char d)
+static int	count_parts(char const *s, char d)
 {
 	int	parts;
 
@@ -33,7 +33,7 @@ int	count_parts(char const *s, char d)
 	}
 }
 
-char	*substrdup(char const **sc, char d)
+static char	*substrdup(char const **sc, char d)
 {
 	const char	*s;
 	char		*substr;
@@ -46,21 +46,21 @@ char	*substrdup(char const **sc, char d)
 	while (s[size] != '\0' && s[size] != d)
 		size++;
 	substr = malloc(size + 1);
-	if (substr == NULL)
-		return (NULL);
+	if (!substr)
+		return (0);
 	ft_memcpy(substr, s, size);
 	substr[size] = '\0';
 	*sc = s + size;
 	return (substr);
 }
 
-char	**empty_array(void)
+static char	**empty_array(void)
 {
 	char	**empty;
 
 	empty = malloc(sizeof(char *));
-	if (empty != NULL)
-		empty[0] = NULL;
+	if (empty)
+		empty[0] = 0;
 	return (empty);
 }
 
@@ -70,25 +70,25 @@ char	**ft_split(char const *s, char d)
 	size_t	size;
 	size_t	iter;
 
-	if (s == NULL)
+	if (!s)
 		return (empty_array());
 	size = count_parts(s, d);
 	split = malloc(sizeof(char *) * (size + 1));
-	if (split == NULL)
-		return (NULL);
+	if (!split)
+		return (0);
 	iter = 0;
 	while (iter < size)
 	{
 		split[iter] = substrdup(&s, d);
-		if (split[iter] == NULL)
+		if (!split[iter])
 		{
 			while (iter-- > 0)
 				free(split[iter]);
 			free(split);
-			return (NULL);
+			return (0);
 		}
 		iter++;
 	}
-	split[size] = NULL;
+	split[size] = 0;
 	return (split);
 }

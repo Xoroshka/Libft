@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 04:02:20 by clovella          #+#    #+#             */
-/*   Updated: 2021/10/12 16:57:42 by clovella         ###   ########.fr       */
+/*   Updated: 2021/11/16 03:00:40 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t n)
 	size_t	slen;
 
 	slen = ft_strlen(src);
-	if (dst == NULL || n == 0)
+	if (!dst || !n)
 		return (slen);
 	if (slen + 1 < n)
 		ft_memmove(dst, src, slen + 1);

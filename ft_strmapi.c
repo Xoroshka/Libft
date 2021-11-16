@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 04:03:09 by clovella          #+#    #+#             */
-/*   Updated: 2021/10/23 01:40:53 by clovella         ###   ########.fr       */
+/*   Updated: 2021/11/16 03:01:16 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ char	*ft_strmapi(char const *s,
 	size_t			len;
 	char			*so;
 
-	if (s == NULL || f == NULL)
-		return (NULL);
+	if (!s || !f)
+		return (0);
 	len = ft_strlen(s);
 	so = malloc(len + 1);
-	if (so == NULL)
-		return (NULL);
+	if (!so)
+		return (0);
 	i = 0;
 	while (s[i])
 	{

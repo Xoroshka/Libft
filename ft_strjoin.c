@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 04:01:15 by clovella          #+#    #+#             */
-/*   Updated: 2021/10/23 01:37:19 by clovella         ###   ########.fr       */
+/*   Updated: 2021/11/16 02:59:47 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	s1len = 0;
 	s2len = 0;
-	if (s1 != NULL)
+	if (s1)
 		s1len = ft_strlen(s1);
-	if (s2 != NULL)
+	if (s2)
 		s2len = ft_strlen(s2);
 	s3 = malloc (s1len + s2len + 1);
-	if (s3 == NULL)
-		return (NULL);
+	if (!s3)
+		return (0);
 	if (s1len != 0)
 		ft_memcpy(s3, s1, s1len);
 	if (s2len != 0)

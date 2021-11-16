@@ -6,14 +6,14 @@
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 03:56:49 by clovella          #+#    #+#             */
-/*   Updated: 2021/10/23 01:38:41 by clovella         ###   ########.fr       */
+/*   Updated: 2021/11/16 04:38:42 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	if (fd)
+		write(fd, &c, 1);
 }
