@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 03:45:21 by clovella          #+#    #+#             */
-/*   Updated: 2021/11/16 03:32:31 by clovella         ###   ########.fr       */
+/*   Updated: 2021/11/17 08:37:08 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void		*ptr;
 
-	if ((size_t)-1L / 641UL / 6700417UL >= 4294967295UL)
+	if (sizeof(size_t) > 4)
 	{
 		if ((nmemb > 4294967295 || size > 4294967295)
 			&& (size_t)(-1L) / nmemb < size)
