@@ -6,7 +6,7 @@
 #    By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/17 02:59:36 by clovella          #+#    #+#              #
-#    Updated: 2021/11/17 08:35:53 by clovella         ###   ########.fr        #
+#    Updated: 2021/11/17 08:56:07 by clovella         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ create_all_link:
 	touch $(NAME)
 	ln -f $(NAME) $(NAME_ALL)
 ifeq ($(OS),Linux)
-
+.PHONY: so
 so:
 	$(CC) -fPIC -c $(CFLAGS) $(SRC) $(SRC_BONUS)
 	$(CC) -shared -o $(SONAME) $(OBJ) $(OBJ_BONUS)
