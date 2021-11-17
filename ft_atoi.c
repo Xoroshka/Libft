@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 03:43:16 by clovella          #+#    #+#             */
-/*   Updated: 2021/11/16 03:43:18 by clovella         ###   ########.fr       */
+/*   Updated: 2021/11/17 08:40:14 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	pop_sign(const char **ss)
 
 static long int	ft_atol(const char *s)
 {
-	const long		long_max = (long)(((unsigned long) -1L) >> 1);
+	const long		long_max = (long)(((unsigned long)(-1L)) >> 1);
 	long int		acc;
 	unsigned char	c;
 	int				sign;
