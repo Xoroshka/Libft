@@ -6,7 +6,7 @@
 #    By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/17 02:59:36 by clovella          #+#    #+#              #
-#    Updated: 2021/11/17 08:56:07 by clovella         ###   ########.fr        #
+#    Updated: 2021/11/17 13:53:37 by clovella         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,9 @@ ARFLAGS := rs
 OS := $(shell uname -s)
 
 NAME_BASE := libft
-NAME := $(NAME_BASE).a
-NAME_BONUS := $(NAME_BASE)_bonus.a
-NAME_ALL := $(NAME_BASE)_all.a
-SONAME := libft.so
+NAME :=			$(NAME_BASE).a
+NAME_BONUS :=	$(NAME_BASE)_bonus.a
+SONAME :=		$(NAME_BASE).so
 
 SRC := ft_atoi.c ft_isdigit.c ft_memchr.c ft_putendl_fd.c ft_striteri.c \
 	ft_strncmp.c ft_toupper.c ft_bzero.c ft_isprint.c ft_memcmp.c ft_putnbr_fd.c \
@@ -39,12 +38,12 @@ DEPS := $(SRC:.c=.d) $(SRC_BONUS:.c=.d)
 $(NAME): $(OBJ)
 	$(AR) $(ARFLAGS) $@ $?
 
-all: $(NAME_ALL)
+all: $(NAME) bonus
 
 bonus: $(NAME_BONUS)
 
 clean:
-	$(RM) $(DEPS) $(OBJ) $(OBJ_BONUS) $(NAME_ALL) $(NAME_BONUS)
+	$(RM) $(DEPS) $(OBJ) $(OBJ_BONUS) $(NAME_BONUS)
 
 fclean: clean
 	$(RM) $(NAME) $(SONAME)
@@ -53,21 +52,16 @@ re: fclean all
 
 -include $(DEPS)
 
-$(NAME_BONUS):: $(OBJ_BONUS) | create_bonus_link
-	$(AR) $(ARFLAGS) $@ $?
+$(NAME_BONUS): $(OBJ_BONUS) | create_bonus_link
+	$(AR) $(ARFLAGS) $(NAME) $?
 
-.PHONY: create_bonus_link
 create_bonus_link:
-	touch $(NAME)
-	ln -f $(NAME) $(NAME_BONUS)
+	@touch null
+	@ar r $(NAME) null
+	@ar d $(NAME) null
+	@rm null
+	@ln -f $(NAME) $(NAME_BONUS)
 
-$(NAME_ALL):: $(OBJ) $(OBJ_BONUS) | create_all_link
-	$(AR) $(ARFLAGS) $@ $?
-
-.PHONY: create_all_link
-create_all_link:
-	touch $(NAME)
-	ln -f $(NAME) $(NAME_ALL)
 ifeq ($(OS),Linux)
 .PHONY: so
 so:
