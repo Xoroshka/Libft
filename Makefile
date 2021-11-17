@@ -1,8 +1,25 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/11/17 02:59:36 by clovella          #+#    #+#              #
+#    Updated: 2021/11/17 08:35:53 by clovella         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC := clang
 CFLAGS := -Wall -Wextra -Werror -O2 -MMD
 ARFLAGS := rs
-NAME := libft.a
-LIBNAME := libft
+OS := $(shell uname -s)
+
+NAME_BASE := libft
+NAME := $(NAME_BASE).a
+NAME_BONUS := $(NAME_BASE)_bonus.a
+NAME_ALL := $(NAME_BASE)_all.a
+SONAME := libft.so
 
 SRC := ft_atoi.c ft_isdigit.c ft_memchr.c ft_putendl_fd.c ft_striteri.c \
 	ft_strncmp.c ft_toupper.c ft_bzero.c ft_isprint.c ft_memcmp.c ft_putnbr_fd.c \
@@ -17,24 +34,63 @@ OBJ_BONUS := $(SRC_BONUS:.c=.o)
 DEPS := $(SRC:.c=.d) $(SRC_BONUS:.c=.d)
 
 .SECONDARY:
-.PHONY: all clean fclean re bonus $(NAME)
+.PHONY: all clean fclean re bonus
 
-$(NAME): $(NAME)($(OBJ))
+$(NAME): $(OBJ)
+	$(AR) $(ARFLAGS) $@ $?
 
-all: $(NAME) bonus
+all: $(NAME_ALL)
 
-bonus: $(NAME)($(OBJ_BONUS))
+bonus: $(NAME_BONUS)
 
-so: $(OBJ) $(OBJ_BONUS)
-	$(CC) -fPIC -c $(CFLAGS) $(SRC) $(SRC_BONUS)
-	gcc -shared -o libft.so $(OBJ) $(OBJ_BONUS)
+clean:
+	$(RM) $(DEPS) $(OBJ) $(OBJ_BONUS) $(NAME_ALL) $(NAME_BONUS)
+
+fclean: clean
+	$(RM) $(NAME) $(SONAME)
+
+re: fclean all
 
 -include $(DEPS)
 
-clean:
-	$(RM) $(OBJ) $(OBJ_BONUS) $(DEPS)
+$(NAME_BONUS):: $(OBJ_BONUS) | create_bonus_link
+	$(AR) $(ARFLAGS) $@ $?
 
-fclean: clean
-	$(RM) $(NAME) $(LIBNAME).so
+.PHONY: create_bonus_link
+create_bonus_link:
+	touch $(NAME)
+	ln -f $(NAME) $(NAME_BONUS)
 
-re: fclean all
+$(NAME_ALL):: $(OBJ) $(OBJ_BONUS) | create_all_link
+	$(AR) $(ARFLAGS) $@ $?
+
+.PHONY: create_all_link
+create_all_link:
+	touch $(NAME)
+	ln -f $(NAME) $(NAME_ALL)
+ifeq ($(OS),Linux)
+
+so:
+	$(CC) -fPIC -c $(CFLAGS) $(SRC) $(SRC_BONUS)
+	$(CC) -shared -o $(SONAME) $(OBJ) $(OBJ_BONUS)
+endif
+
+.PHONY: test test-ut test-t test-remove
+test: test-ut test-t
+
+test-ut: libft-unit-test
+	cd libft-unit-test && make LIBFTDIR=../ && ./run_test
+
+test-t: libftTester
+	$(RM) $(SONAME)
+	cd libftTester && make a
+
+test-remove:
+	$(RM) -r libft-unit-test
+	$(RM) -r libftTester
+
+libft-unit-test:
+	git clone https://github.com/alelievr/libft-unit-test.git
+
+libftTester:
+	git clone https://github.com/Tripouille/libftTester.git
