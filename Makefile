@@ -6,7 +6,7 @@
 #    By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/17 02:59:36 by clovella          #+#    #+#              #
-#    Updated: 2021/11/19 14:13:20 by clovella         ###   ########.fr        #
+#    Updated: 2021/11/19 14:25:38 by clovella         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ bonus: $(NAME)($(OBJ_BONUS))
 all: $(NAME) bonus
 
 clean:
-	$(RM) $(DEPS) $(OBJ) $(OBJ_BONUS) $(NAME_BONUS)
+	$(RM) $(DEPS) $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
 	$(RM) $(NAME) $(SONAME)
