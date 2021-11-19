@@ -6,7 +6,7 @@
 #    By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/17 02:59:36 by clovella          #+#    #+#              #
-#    Updated: 2021/11/17 13:53:37 by clovella         ###   ########.fr        #
+#    Updated: 2021/11/19 14:13:20 by clovella         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,8 @@ CFLAGS := -Wall -Wextra -Werror -O2 -MMD
 ARFLAGS := rs
 OS := $(shell uname -s)
 
-NAME_BASE := libft
-NAME :=			$(NAME_BASE).a
-NAME_BONUS :=	$(NAME_BASE)_bonus.a
-SONAME :=		$(NAME_BASE).so
+NAME :=			libft.a
+SONAME :=		libft.so
 
 SRC := ft_atoi.c ft_isdigit.c ft_memchr.c ft_putendl_fd.c ft_striteri.c \
 	ft_strncmp.c ft_toupper.c ft_bzero.c ft_isprint.c ft_memcmp.c ft_putnbr_fd.c \
@@ -33,14 +31,13 @@ OBJ_BONUS := $(SRC_BONUS:.c=.o)
 DEPS := $(SRC:.c=.d) $(SRC_BONUS:.c=.d)
 
 .SECONDARY:
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re bonus $(NAME)
 
-$(NAME): $(OBJ)
-	$(AR) $(ARFLAGS) $@ $?
+$(NAME): $(NAME)($(OBJ))
+
+bonus: $(NAME)($(OBJ_BONUS))
 
 all: $(NAME) bonus
-
-bonus: $(NAME_BONUS)
 
 clean:
 	$(RM) $(DEPS) $(OBJ) $(OBJ_BONUS) $(NAME_BONUS)
@@ -52,16 +49,6 @@ re: fclean all
 
 -include $(DEPS)
 
-$(NAME_BONUS): $(OBJ_BONUS) | create_bonus_link
-	$(AR) $(ARFLAGS) $(NAME) $?
-
-create_bonus_link:
-	@touch null
-	@ar r $(NAME) null
-	@ar d $(NAME) null
-	@rm null
-	@ln -f $(NAME) $(NAME_BONUS)
-
 ifeq ($(OS),Linux)
 .PHONY: so
 so:
@@ -72,10 +59,10 @@ endif
 .PHONY: test test-ut test-t test-remove
 test: test-ut test-t
 
-test-ut: libft-unit-test
+test-ut: libft-unit-test all
 	cd libft-unit-test && make LIBFTDIR=../ && ./run_test
 
-test-t: libftTester
+test-t: libftTester all
 	$(RM) $(SONAME)
 	cd libftTester && make a
 
