@@ -1,0 +1,8 @@
+*
+!include
+!src
+!Makefile
+!conf.mk
+!mod_include.mk
+!mod.mk
+!.gitignore
