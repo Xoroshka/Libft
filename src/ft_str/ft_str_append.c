@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:42:37 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/15 22:52:32 by clovella         ###   ########.fr       */
+/*   Updated: 2022/02/16 01:33:51 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,12 @@
 
 int	ft_str_append(t_str *str, char *apnd, size_t apnd_size)
 {
-	if (ft_str_overcap(str, apnd_size))
+	size_t	new_cap;
+
+	new_cap = str->cap + str->cap / 2;
+	while (new_cap < str->len + apnd_size)
+		new_cap += new_cap / 2;
+	if (ft_str_upcap(str, new_cap))
 		return (-1);
 	ft_memcpy(str->data + str->len, apnd, apnd_size);
 	str->len += apnd_size;
