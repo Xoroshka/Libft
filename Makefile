@@ -6,7 +6,7 @@
 #    By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/17 02:59:36 by clovella          #+#    #+#              #
-#    Updated: 2022/02/13 19:37:46 by clovella         ###   ########.fr        #
+#    Updated: 2022/02/15 20:45:36 by clovella         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME 		:=	libft.a
 SO_NAME 	:=	$(NAME:.a=.so)
 DEBUG_NAME 	:=	$(NAME:.a=_dbg.a)
-MODULES 	:=	ft_lst ft_std
+MODULES 	:=	ft_lst ft_std ft_str
 
 SRC_DIR		:=	src
 OBJ_DIR		:=	obj
