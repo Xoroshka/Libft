@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_str.h                                        :+:      :+:    :+:   */
+/*   ft_str_push.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 19:02:20 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/15 22:29:15 by clovella         ###   ########.fr       */
+/*   Created: 2022/02/15 22:30:35 by clovella          #+#    #+#             */
+/*   Updated: 2022/02/15 22:30:40 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_STR_H
-# define LIBFT_STR_H
-# include <stddef.h>
+#include "libft_str.h"
 
-typedef struct s_str
+int	ft_str_push(t_str *str, char c)
 {
-	char	*data;
-	size_t	len;
-	size_t	cap;
-}	t_str;
-
-t_str	ft_str_with_cap(size_t cap);
-int		ft_str_trim(t_str *str);
-int		ft_str_overcap(t_str *str, size_t overcap);
-int		ft_str_append(t_str *str, char *apnd, size_t apnd_size);
-int		ft_str_join(t_str *to, t_str from);
-int		ft_str_push(t_str *str, char c);
-#endif
+	if (ft_str_overcap(str, 1))
+		return (-1);
+	str->data[str->len] = c;
+	return (0);
+}

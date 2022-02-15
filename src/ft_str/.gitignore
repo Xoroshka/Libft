@@ -3,3 +3,4 @@
 !ft_str_overcap.c
 !ft_str_append.c
 !ft_str_join.c
+!ft_str_push.c
