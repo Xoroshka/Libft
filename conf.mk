@@ -12,4 +12,4 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c -MF $(DEP_DIR)/$*.d $< -o $@
 
 %.a:
-	$(AR) $(ARFLAGS) $@ $^
+	$(AR) $(ARFLAGS) $@ $(filter %.o,$^)
