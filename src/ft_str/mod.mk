@@ -7,5 +7,7 @@ ft_str_overcap.c \
 ft_str_upcap.c \
 ft_str_append.c \
 ft_str_join.c \
-ft_str_push.c
+ft_str_push.c \
+ft_i2str.c \
+ft_l2str.c
 include $(MOD_INCLUDE)
