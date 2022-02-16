@@ -1,6 +1,8 @@
 MOD_NAME:=ft_std
 MOD_SRC	:=\
 ft_atoi.c \
+ft_abs.c \
+ft_absl.c \
 ft_bzero.c \
 ft_calloc.c \
 ft_combsort.c \
