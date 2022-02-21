@@ -6,7 +6,7 @@
 #    By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/17 02:59:36 by clovella          #+#    #+#              #
-#    Updated: 2022/02/15 20:45:36 by clovella         ###   ########.fr        #
+#    Updated: 2022/02/21 03:13:56 by clovella         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,15 @@ DEP_DIR		:=	dep
 .SECONDARY:
 .PHONY: all clean fclean re debug test
 
-$(NAME): $$(OBJ) | $$(call dirs,$$(MODULES))
+$(NAME): CFLAGS += -O3
+$(NAME): $$(OBJ)
+
+$(DEBUG_NAME): CFLAGS += -g
+$(DEBUG_NAME): $$(OBJ)
+
+$(SO_NAME): CFLAGS += -O3 -fPIC
+$(SO_NAME): $$(OBJ)
+	gcc -shared -o $@ $^
 
 include conf.mk $(patsubst %,$(SRC_DIR)/%/mod.mk,$(MODULES))
 
@@ -32,12 +40,14 @@ all: $(NAME) $(patsubst %,lib%.a,$(MODULES))
 
 debug: $(DEBUG_NAME)
 
+so: $(SO_NAME)
+
 clean:
 	$(RM) $(OBJ_DIR) $(DEP_DIR)
 
 fclean: clean
-	$(RM) lib*.a
+	$(RM) lib*.a lib*.so
 
 re: fclean all
 
-# -include $(DEPS)
+-include $(patsubst $(OBJ_DIR)/%.o,$(DEP_DIR)/%.d,$(OBJ))
