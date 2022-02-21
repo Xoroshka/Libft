@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:02:20 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/16 03:29:54 by clovella         ###   ########.fr       */
+/*   Updated: 2022/02/21 10:38:07 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ int		ft_str_join(t_str *to, t_str from);
 int		ft_str_push(t_str *str, char c);
 t_str	ft_i2str(int n);
 t_str	ft_l2str(long int n);
+char	*ft_str2cstr(t_str str);
 #endif

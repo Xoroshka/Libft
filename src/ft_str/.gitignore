@@ -7,3 +7,4 @@
 !ft_str_push.c
 !ft_i2str.c
 !ft_l2str.c
+!ft_str2cstr.c
