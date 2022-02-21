@@ -1,3 +1,4 @@
-!libft_lst.h
-!libft_std.h
-!libft_str.h
+!libft.h
+!lst.h
+!std.h
+!str.h
