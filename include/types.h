@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_upcap.c                                     :+:      :+:    :+:   */
+/*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 01:19:40 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 13:46:38 by clovella         ###   ########.fr       */
+/*   Created: 2022/02/21 20:08:49 by clovella          #+#    #+#             */
+/*   Updated: 2022/02/21 20:08:51 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "std.h"
-#include "str.h"
+#ifndef TYPES_H
+# define TYPES_H
 
-int	ft_str_upcap(t_str *str, size_t upcap)
+typedef enum e_bool
 {
-	char	*new_data;
-
-	new_data = malloc(str->cap + upcap);
-	if (!ft_memcpy(new_data, str->data, str->len))
-		return (-1);
-	free(str->data);
-	str->data = new_data;
-	str->cap += upcap;
-	return (0);
-}
+	false,
+	true
+}	t_bool;
+#endif

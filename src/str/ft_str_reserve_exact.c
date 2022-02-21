@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_i2str.c                                         :+:      :+:    :+:   */
+/*   ft_str_reserve_exact.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 03:23:39 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 13:46:38 by clovella         ###   ########.fr       */
+/*   Created: 2022/02/15 20:42:41 by clovella          #+#    #+#             */
+/*   Updated: 2022/02/21 19:17:34 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "std.h"
 #include "str.h"
+#include "utils.h"
 
-t_str	ft_i2str(int n)
+t_bool	ft_str_reserve_exact(t_str *str, size_t additional)
 {
-	t_str			str;
-	unsigned int	abs;
-	unsigned int	mod;
+	char	*new_data;
+	size_t	new_size;
 
-	abs = ft_abs(n);
-	mod = 1;
-	str.len = 0;
-	while (++str.len && abs / mod > 9)
-		mod *= 10;
-	str = ft_str_with_cap(str.len + (n < 0));
-	if (!str.data)
-		return (str);
-	*str.data = '-';
-	str.len = (n < 0);
-	while (mod)
+	if (str == 0)
+		return (false);
+	if (str->cap - str->len >= additional)
+		return (true);
+	new_size = str->len + additional;
+	new_data = ft_phony_realloc(str->data, str->cap, new_size);
+	if (new_data)
 	{
-		str.data[str.len++] = (char)((abs / mod) + '0');
-		abs %= mod;
-		mod /= 10;
+		str->data = new_data;
+		str->cap = new_size;
+		return (true);
 	}
-	return (str);
+	return (false);
 }

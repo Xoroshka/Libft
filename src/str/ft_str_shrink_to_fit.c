@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_with_cap.c                                  :+:      :+:    :+:   */
+/*   ft_str_shrink_to_fit.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 19:45:55 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 13:46:29 by clovella         ###   ########.fr       */
+/*   Created: 2022/02/15 19:46:13 by clovella          #+#    #+#             */
+/*   Updated: 2022/02/21 18:53:01 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "str.h"
+#include "utils.h"
 
-t_str	ft_str_with_cap(size_t cap)
+t_bool	ft_str_shrink_to_fit(t_str *str)
 {
-	t_str	str;
+	char	*new_data;
 
-	str.data = malloc(cap);
-	if (str.data != 0)
-		str.cap = cap;
-	else
-		str.cap = 0;
-	str.len = 0;
-	return (str);
+	if (str->cap == str->len)
+		return (true);
+	new_data = ft_phony_realloc(str->data, str->cap, str->len);
+	if (new_data)
+	{
+		str->data = new_data;
+		str->cap = str->len;
+		return (true);
+	}
+	return (false);
 }

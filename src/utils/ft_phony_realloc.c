@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_join.c                                      :+:      :+:    :+:   */
+/*   ft_phony_realloc.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 20:42:34 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 13:46:29 by clovella         ###   ########.fr       */
+/*   Created: 2022/02/21 20:09:30 by clovella          #+#    #+#             */
+/*   Updated: 2022/02/21 20:09:38 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "str.h"
+#include <stdlib.h>
+#include "std.h"
 
-int	ft_str_join(t_str *to, t_str from)
+void	*ft_phony_realloc(void *data, size_t cur_size, size_t new_size)
 {
-	return (ft_str_append(to, from.data, from.len));
+	void	*new_data;
+
+	new_data = malloc(new_size);
+	if (new_data)
+	{
+		if (data)
+		{
+			if (cur_size < new_size)
+				ft_memcpy(new_data, data, cur_size);
+			else
+				ft_memcpy(new_data, data, new_size);
+			free(data);
+		}
+		return (new_data);
+	}
+	return (0);
 }

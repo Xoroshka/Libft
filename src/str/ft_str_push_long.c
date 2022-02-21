@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_append.c                                    :+:      :+:    :+:   */
+/*   ft_l2str.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 20:42:37 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 13:46:38 by clovella         ###   ########.fr       */
+/*   Created: 2022/02/16 03:23:39 by clovella          #+#    #+#             */
+/*   Updated: 2022/02/21 19:27:08 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdlib.h"
 #include "std.h"
 #include "str.h"
 
-int	ft_str_append(t_str *str, char *apnd, size_t apnd_size)
+t_bool	ft_str_push_long(t_str *str, long n)
 {
-	size_t	new_cap;
+	unsigned long int	abs;
+	unsigned long int	mod;
+	int					i;
 
-	if (str->cap < str->len + apnd_size)
+	abs = ft_absl(n);
+	mod = 1;
+	i = 0;
+	while (++i && abs / mod > 9)
+		mod *= 10;
+	if (ft_str_reserve_exact(str, i + (n < 0)) == false)
+		return (false);
+	*str->data = '-';
+	str->len = (n < 0);
+	while (mod)
 	{
-		if (str->cap < 8)
-			new_cap = 8;
-		else
-			new_cap = str->cap + (str->cap / 2);
-		while (new_cap < str->len + apnd_size)
-			new_cap += new_cap / 2;
-		if (ft_str_upcap(str, new_cap))
-			return (-1);
+		ft_str_push(str, (abs / mod) + '0');
+		abs %= mod;
+		mod /= 10;
 	}
-	ft_memcpy(str->data + str->len, apnd, apnd_size);
-	str->len += apnd_size;
-	return (0);
+	return (true);
 }

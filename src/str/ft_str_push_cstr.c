@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str2cstr.c                                      :+:      :+:    :+:   */
+/*   ft_str_push_cstr.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 10:32:12 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 19:29:20 by clovella         ###   ########.fr       */
+/*   Created: 2022/02/15 20:42:37 by clovella          #+#    #+#             */
+/*   Updated: 2022/02/21 20:18:34 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "str.h"
+#include "stdlib.h"
 #include "std.h"
+#include "str.h"
 
-char	*ft_str2cstr(t_str str)
+t_bool	ft_str_push_cstr(t_str *str, char *cstr, size_t size)
 {
-	char	*cstr;
-
-	cstr = ft_memcpy(
-			malloc(str.len + 1),
-			str.data,
-			str.len);
-	if (cstr)
-		cstr[str.len] = '\0';
-	return (cstr);
+	if (ft_str_reserve(str, size)
+		&& ft_memcpy(str->data + str->len, cstr, size))
+	{
+		str->len += size;
+		return (true);
+	}
+	return (false);
 }
