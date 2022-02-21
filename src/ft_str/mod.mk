@@ -1,4 +1,3 @@
-MOD_DEPS:= ft_std
 MOD_NAME:= ft_str
 MOD_SRC	:= \
 ft_str_with_cap.c \

@@ -6,10 +6,15 @@
 #    By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/17 02:59:36 by clovella          #+#    #+#              #
-#    Updated: 2022/02/21 03:21:53 by clovella         ###   ########.fr        #
+#    Updated: 2022/02/21 12:33:57 by clovella         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+CC := clang
+CFLAGS := -Wall -Wextra -Werror
+OPTFLAGS := -O3
+ARFLAGS := rs
+RM := rm -rf
 
 NAME 		:=	libft.a
 SO_NAME 	:=	$(NAME:.a=.so)
@@ -20,23 +25,11 @@ SRC_DIR		:=	src
 OBJ_DIR		:=	obj
 DEP_DIR		:=	dep
 
-.SECONDEXPANSION:
-.SECONDARY:
-.PHONY: all clean fclean re debug so
+include conf.mk
 
-$(NAME): CFLAGS += -O3
-$(NAME): $$(OBJ)
+.PHONY: all debug so clean fclean re
 
-$(DEBUG_NAME): CFLAGS += -g
-$(DEBUG_NAME): $$(OBJ)
-
-$(SO_NAME): CFLAGS += -O3 -fPIC
-$(SO_NAME): $$(OBJ)
-	gcc -shared -o $@ $^
-
-include conf.mk $(patsubst %,$(SRC_DIR)/%/mod.mk,$(MODULES))
-
-all: $(NAME) $(patsubst %,lib%.a,$(MODULES))
+all: $(NAME)
 
 debug: $(DEBUG_NAME)
 
@@ -46,8 +39,7 @@ clean:
 	$(RM) $(OBJ_DIR) $(DEP_DIR)
 
 fclean: clean
-	$(RM) lib*.a lib*.so
+	$(RM) $(NAME) $(DEBUG_NAME) $(SO_NAME)
 
 re: fclean all
 
--include $(patsubst $(OBJ_DIR)/%.o,$(DEP_DIR)/%.d,$(OBJ))
