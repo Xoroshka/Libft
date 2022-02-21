@@ -6,7 +6,7 @@
 #    By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/17 02:59:36 by clovella          #+#    #+#              #
-#    Updated: 2022/02/21 03:13:56 by clovella         ###   ########.fr        #
+#    Updated: 2022/02/21 03:21:53 by clovella         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ DEP_DIR		:=	dep
 
 .SECONDEXPANSION:
 .SECONDARY:
-.PHONY: all clean fclean re debug test
+.PHONY: all clean fclean re debug so
 
 $(NAME): CFLAGS += -O3
 $(NAME): $$(OBJ)
