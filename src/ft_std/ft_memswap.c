@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 19:56:54 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/13 19:56:59 by clovella         ###   ########.fr       */
+/*   Updated: 2022/02/21 04:34:21 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_memswap(void *ptr1, void *ptr2, size_t size)
 	char			tmp;
 	const size_t	a_end = (size_t)ptr1 + size;
 
-	if (ptr1 == ptr2)
+	if (ptr1 == ptr2 || ptr1 == 0 || ptr2 == 0)
 		return ;
 	a = ptr1;
 	b = ptr2;

@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 03:55:18 by clovella          #+#    #+#             */
-/*   Updated: 2021/11/16 02:52:41 by clovella         ###   ########.fr       */
+/*   Updated: 2022/02/21 04:30:37 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	char			*d;
 	const char		*s;
 
+	if (!dest || !src)
+		return (0);
 	if (dest == src)
 		return (dest);
 	if (dest < src)
