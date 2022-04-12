@@ -4,3 +4,5 @@
 !str.h
 !utils.h
 !types.h
+!types_base.h
+!types_vec.h
