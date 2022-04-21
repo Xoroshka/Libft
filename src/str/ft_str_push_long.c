@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_l2str.c                                         :+:      :+:    :+:   */
+/*   ft_str_push_long.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
+/*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 03:23:39 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 19:27:08 by clovella         ###   ########.fr       */
+/*   Updated: 2022/04/21 23:51:50 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "std.h"
-#include "str.h"
+#include "libft_std.h"
+#include "libft_str.h"
 
 t_bool	ft_str_push_long(t_str *str, long n)
 {

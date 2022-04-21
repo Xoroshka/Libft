@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
+/*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 04:01:46 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 13:46:38 by clovella         ###   ########.fr       */
+/*   Updated: 2022/04/21 23:51:50 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "std.h"
+#include "libft_std.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t n)
 {

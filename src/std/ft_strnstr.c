@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
+/*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 04:04:19 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 13:46:38 by clovella         ###   ########.fr       */
+/*   Updated: 2022/04/21 23:51:50 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "std.h"
+#include "libft_std.h"
 
 char	*ft_strnstr(const char *s, const char *find, size_t slen)
 {

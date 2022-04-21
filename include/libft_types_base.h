@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   types_base.h                                       :+:      :+:    :+:   */
+/*   libft_types_base.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:45:53 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/06 10:41:22 by clovella         ###   ########.fr       */
+/*   Updated: 2022/04/22 00:02:33 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TYPES_BASE_H
-# define TYPES_BASE_H
+#ifndef LIBFT_TYPES_BASE_H
+# define LIBFT_TYPES_BASE_H
 
 /*
 ###Signed Types

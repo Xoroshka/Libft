@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_qsort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
+/*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 12:24:40 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 13:46:38 by clovella         ###   ########.fr       */
+/*   Updated: 2022/04/21 23:51:50 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "std.h"
+#include "libft_std.h"
 
 struct s_worker
 {

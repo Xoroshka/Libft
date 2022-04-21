@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst.h                                              :+:      :+:    :+:   */
+/*   libft_lst.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
+/*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 15:43:56 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 13:46:15 by clovella         ###   ########.fr       */
+/*   Updated: 2022/04/22 00:02:33 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LST_H
-# define LST_H
+#ifndef LIBFT_LST_H
+# define LIBFT_LST_H
 # include <stddef.h>
 
 typedef struct s_list

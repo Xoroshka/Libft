@@ -1,8 +1,8 @@
 !libft.h
-!lst.h
-!std.h
-!str.h
-!utils.h
-!types.h
-!types_base.h
-!types_vec.h
+!libft_lst.h
+!libft_std.h
+!libft_str.h
+!libft_utils.h
+!libft_types.h
+!libft_types_base.h
+!libft_types_vec.h

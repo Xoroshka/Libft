@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   types_vec.h                                        :+:      :+:    :+:   */
+/*   libft_types_vec.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:53:40 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/06 14:54:08 by clovella         ###   ########.fr       */
+/*   Updated: 2022/04/22 00:03:48 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TYPES_VEC_H
-# define TYPES_VEC_H
-# include "types_base.h"
+#ifndef LIBFT_TYPES_VEC_H
+# define LIBFT_TYPES_VEC_H
+# include "libft_types_base.h"
 
 /*
 ###Signed Vectors

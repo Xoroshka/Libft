@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   libft_types.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
+/*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 17:17:00 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 20:09:12 by clovella         ###   ########.fr       */
+/*   Created: 2022/02/21 20:08:49 by clovella          #+#    #+#             */
+/*   Updated: 2022/04/22 00:03:34 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
-# include <stddef.h>
+#ifndef LIBFT_TYPES_H
+# define LIBFT_TYPES_H
+# include "libft_types_base.h"
+# include "libft_types_vec.h"
 
-size_t	ft_select_mem_size(size_t current, size_t additional);
-void	*ft_phony_realloc(void *data, size_t cur_size, size_t new_size);
+typedef enum e_bool
+{
+	false,
+	true
+}	t_bool;
 #endif

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_new.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
+/*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 20:08:28 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 20:08:29 by clovella         ###   ########.fr       */
+/*   Updated: 2022/04/21 23:51:50 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "str.h"
+#include "libft_str.h"
 
 t_str	ft_str_new(void)
 {

@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_reserve_exact.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
+/*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:42:41 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 19:17:34 by clovella         ###   ########.fr       */
+/*   Updated: 2022/04/21 23:51:50 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "str.h"
-#include "utils.h"
+#include "libft_str.h"
+#include "libft_utils.h"
 
 t_bool	ft_str_reserve_exact(t_str *str, size_t additional)
 {

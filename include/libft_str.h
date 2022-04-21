@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str.h                                              :+:      :+:    :+:   */
+/*   libft_str.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
+/*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:02:20 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 20:09:25 by clovella         ###   ########.fr       */
+/*   Updated: 2022/04/22 00:03:12 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STR_H
-# define STR_H
+#ifndef LIBFT_STR_H
+# define LIBFT_STR_H
 # include <stddef.h>
-# include "types.h"
+# include "libft_types.h"
 
 typedef struct s_str
 {

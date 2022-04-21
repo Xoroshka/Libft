@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   std.h                                              :+:      :+:    :+:   */
+/*   libft_std.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
+/*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 23:09:10 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 13:46:19 by clovella         ###   ########.fr       */
+/*   Updated: 2022/04/22 00:02:33 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STD_H
-# define STD_H
+#ifndef LIBFT_STD_H
+# define LIBFT_STD_H
 # include <stddef.h>
 
 int					ft_atoi(const char *str);

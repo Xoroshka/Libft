@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_shrink_to_fit.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
+/*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:46:13 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 18:53:01 by clovella         ###   ########.fr       */
+/*   Updated: 2022/04/21 23:51:50 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "str.h"
-#include "utils.h"
+#include "libft_str.h"
+#include "libft_utils.h"
 
 t_bool	ft_str_shrink_to_fit(t_str *str)
 {
