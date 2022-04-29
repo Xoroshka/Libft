@@ -3,33 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memswap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
+/*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 19:56:54 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 04:34:21 by clovella         ###   ########.fr       */
+/*   Updated: 2022/04/29 13:29:52 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft_types.h"
 
-void	ft_memswap(void *ptr1, void *ptr2, size_t size)
+static void	internal_ft_memswap(char *p1, char *p2, t_u64 size)
 {
-	char			*a;
-	char			*b;
-	char			tmp;
-	const size_t	a_end = (size_t)ptr1 + size;
+	char	tmp;
+	t_u64	i;
 
-	if (ptr1 == ptr2 || ptr1 == 0 || ptr2 == 0)
-		return ;
-	a = ptr1;
-	b = ptr2;
-	while ((size_t)a < a_end)
+	i = 0;
+	while (i < size)
 	{
-		tmp = *a;
-		*a = *b;
-		*b = tmp;
-		a++;
-		b++;
+		tmp = p1[i];
+		p1[i] = p2[i];
+		p2[i] = tmp;
+		i++;
 	}
-	return ;
+}
+
+void	ft_memswap(void *ptr1, void *ptr2, t_u64 size)
+{
+	if (ptr1 != ptr2 && ptr1 != 0 && ptr2 != 0)
+		internal_ft_memswap((char *)ptr1, (char *)ptr2, size);
 }

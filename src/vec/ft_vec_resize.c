@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   ft_vec_resize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 03:06:35 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/29 13:31:23 by clovella         ###   ########.fr       */
+/*   Created: 2022/04/29 11:17:53 by clovella          #+#    #+#             */
+/*   Updated: 2022/04/29 13:28:16 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_types.h"
+#include "libft_vec.h"
+#include "libft_std.h"
 
-t_u32	ft_abs(t_i32 n)
+t_res	ft_vec_resize(t_vec *vec, t_u64 size, const void *placeholder)
 {
-	t_u32	abs;
+	void	*cur;
 
-	if (n < 0)
-		abs = -n;
-	else
-		abs = n;
-	return (abs);
+	if (size < vec->len)
+	{
+		vec->len = size;
+		return (ok);
+	}
+	if (ft_vec_reserve(vec, size - vec->len) == err)
+		return (err);
+	cur = vec->data + vec->len * vec->elm_size;
+	while (vec->len < size)
+	{
+		ft_fmemcpy(cur, placeholder, vec->elm_size);
+		cur += vec->elm_size;
+		vec->len++;
+	}
+	return (ok);
 }

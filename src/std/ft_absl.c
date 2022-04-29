@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_absl.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
+/*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 03:06:35 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/16 03:10:22 by clovella         ###   ########.fr       */
+/*   Updated: 2022/04/29 13:32:09 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned long int	ft_absl(long int n)
+#include "libft_types.h"
+
+t_u64	ft_absl(t_u32 n)
 {
-	unsigned long int	abs;
+	t_u64	abs;
 
 	if (n < 0)
 		abs = -n;

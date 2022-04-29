@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_shrink_to_fit.c                             :+:      :+:    :+:   */
+/*   ft_str_concat.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 19:46:13 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/28 09:35:03 by clovella         ###   ########.fr       */
+/*   Created: 2022/02/15 20:42:37 by clovella          #+#    #+#             */
+/*   Updated: 2022/04/29 12:18:42 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft_vec.h"
 #include "libft_std.h"
-#include "libft_types.h"
 
-t_res	ft_str_shrink_to_fit(t_str *str)
+t_res	ft_str_concat(t_str *str, const char *cstr, t_u64 size)
 {
-	t_u8	*new_data;
-
-	if (str->cap == str->len)
-		return (ok);
-	new_data = ft_memchsize(str->data, str->cap, str->len);
-	if (new_data)
+	if (ft_vec_reserve(str, size)
+		&& ft_fmemcpy(str->data + str->len, cstr, size))
 	{
-		str->data = new_data;
-		str->cap = str->len;
+		str->len += size;
 		return (ok);
 	}
-	else if (str->err_handl == true)
-		str->on_err(str->on_err_ctx);
 	return (err);
 }
