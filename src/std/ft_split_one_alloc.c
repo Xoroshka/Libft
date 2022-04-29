@@ -6,49 +6,43 @@
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 03:59:53 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/21 23:51:50 by clovella         ###   ########.fr       */
+/*   Updated: 2022/04/28 13:31:03 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft_std.h"
 
-typedef struct s_str {
+typedef struct s_substr {
 	char	*ptr;
 	size_t	len;
-}	t_str;
+}	t_substr;
 
 static size_t	alloc_size(char const *s, char c)
 {
 	size_t	size;
+	char	prev;
 
-	while (*s != '\0' && *s == c)
-		s++;
-	size = sizeof(char *);
+	prev = c;
+	size = 0;
 	while (*s != '\0')
 	{
-		if (*s++ != c)
+		if (*s != c)
 			size++;
-		else
-		{
+		if (*s != c && prev == c)
 			size += sizeof(char *) + 1;
-			while (*s == c)
-				s++;
-		}
+		prev = *s++;
 	}
-	if (size > sizeof(char *))
-		if (*--s != c)
-			size += sizeof(char *) + 1;
-	return (size);
+	return (size + sizeof(char *));
 }
 
-static t_str	getsub(const char **ss, char c)
+static t_substr	getsub(const char **ss, char c)
 {
-	t_str		sub;
+	t_substr	sub;
 	const char	*s;
 
 	s = *ss;
-	while (*s == c && *s != '\0')
+	while (*s == c)
 		s++;
 	sub.ptr = (char *) s;
 	sub.len = 0;
@@ -65,7 +59,7 @@ char	**ft_split_one_alloc(char const *s, char c)
 {
 	size_t		size;
 	char		*tail;
-	t_str		sub;
+	t_substr	sub;
 	char		**arr;
 	int			i;
 
@@ -82,7 +76,7 @@ char	**ft_split_one_alloc(char const *s, char c)
 	{
 		sub = getsub(&s, c);
 		*--tail = '\0';
-		ft_memcpy(tail -= sub.len, sub.ptr, sub.len);
+		ft_fmemcpy(tail -= sub.len, sub.ptr, sub.len);
 		arr[i] = tail;
 		i++;
 	}

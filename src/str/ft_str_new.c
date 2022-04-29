@@ -6,18 +6,14 @@
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 20:08:28 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/21 23:51:50 by clovella         ###   ########.fr       */
+/*   Updated: 2022/04/28 10:10:55 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_str.h"
+#include "libft_types.h"
+#include "libft_vec.h"
 
 t_str	ft_str_new(void)
 {
-	t_str	str;
-
-	str.cap = 0;
-	str.len = 0;
-	str.data = 0;
-	return (str);
+	return (ft_vec_new(sizeof(char)));
 }

@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_str.h                                        :+:      :+:    :+:   */
+/*   libft_vec.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 19:02:20 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/28 09:25:15 by clovella         ###   ########.fr       */
+/*   Created: 2022/04/28 10:15:33 by clovella          #+#    #+#             */
+/*   Updated: 2022/04/29 04:18:11 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_STR_H
-# define LIBFT_STR_H
-# include <stddef.h>
+#ifndef LIBFT_VEC_H
+# define LIBFT_VEC_H
 # include "libft_types.h"
 
-t_str	ft_str_new(void);
-t_bool	ft_str_push_cstr(t_str *str, char *cstr, size_t size);
-t_bool	ft_str_push_str(t_str *to, t_str from);
-t_res	ft_str_push(t_str *str, char c);
-t_bool	ft_str_shrink_to_fit(t_str *str);
-char	*ft_str2cstr(t_str str);
-t_res	ft_str_push_i32(t_str *str, t_i32 n);
-t_res	ft_str_push_i64(t_str *str, t_i64 n);
+t_res	ft_vec_err_handler(t_vec *vec, void (*handler)(void *), void *context);
+void	*ft_vec_get(t_vec *vec, t_u64 index);
+t_vec	ft_vec_new(t_u64 element_size);
+void	*ft_vec_pop(t_vec *vec);
+t_res	ft_vec_push_vec(t_vec *to, t_vec *from);
+t_res	ft_vec_push(t_vec *vec, void *item);
+t_res	ft_vec_reserve_exact(t_vec *vec, t_u64 additional);
+t_res	ft_vec_reserve(t_vec *vec, t_u64 additional);
 #endif

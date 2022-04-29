@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_push_cstr.c                                 :+:      :+:    :+:   */
+/*   ft_vec_push.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 20:42:37 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/28 10:10:48 by clovella         ###   ########.fr       */
+/*   Created: 2022/02/15 22:30:35 by clovella          #+#    #+#             */
+/*   Updated: 2022/04/28 09:50:22 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft_types.h"
 #include "libft_vec.h"
 #include "libft_std.h"
 
-t_res	ft_str_push_cstr(t_str *str, const char *cstr, t_u64 size)
+t_res	ft_vec_push(t_vec *vec, void *item)
 {
-	if (ft_vec_reserve(str, size)
-		&& ft_memcpy(str->data + str->len, cstr, size))
+	if (ft_vec_reserve(vec, 1))
 	{
-		str->len += size;
+		ft_memcpy(vec->data + (vec->len * vec->elm_size), item, vec->elm_size);
+		vec->len++;
 		return (ok);
 	}
 	return (err);

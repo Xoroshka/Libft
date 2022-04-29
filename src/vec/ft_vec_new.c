@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_reserve.c                                   :+:      :+:    :+:   */
+/*   ft_vec_new.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 20:42:41 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/21 23:51:50 by clovella         ###   ########.fr       */
+/*   Created: 2022/02/21 20:08:28 by clovella          #+#    #+#             */
+/*   Updated: 2022/04/28 08:38:46 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_str.h"
-#include "libft_utils.h"
+#include "libft_types.h"
 
-t_bool	ft_str_reserve(t_str *str, size_t additional)
+t_vec	ft_vec_new(t_u64 element_size)
 {
-	size_t	new_size;
+	t_vec	vec;
 
-	if (str == 0)
-		return (false);
-	new_size = ft_select_mem_size(str->cap, additional);
-	return (ft_str_reserve_exact(str, new_size - (str->len)));
+	vec.elm_size = element_size;
+	vec.cap = 0;
+	vec.len = 0;
+	vec.data = 0;
+	vec.err_handl = false;
+	return (vec);
 }

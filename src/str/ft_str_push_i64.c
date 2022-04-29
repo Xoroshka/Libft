@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_push_cstr.c                                 :+:      :+:    :+:   */
+/*   ft_str_push_i64.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 20:42:37 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/28 10:10:48 by clovella         ###   ########.fr       */
+/*   Created: 2022/02/16 03:23:39 by clovella          #+#    #+#             */
+/*   Updated: 2022/04/28 10:14:31 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft_types.h"
 #include "libft_vec.h"
 #include "libft_std.h"
+#include "libft_str.h"
 
-t_res	ft_str_push_cstr(t_str *str, const char *cstr, t_u64 size)
+t_res	ft_str_push_i64(t_str *str, t_i64 n)
 {
-	if (ft_vec_reserve(str, size)
-		&& ft_memcpy(str->data + str->len, cstr, size))
+	t_u64	abs;
+	t_u64	mod;
+	t_i32	i;
+
+	abs = ft_absl(n);
+	mod = 1;
+	i = 0;
+	while (++i && abs / mod > 9)
+		mod *= 10;
+	if (ft_vec_reserve_exact(str, i + (n < 0)) == err)
+		return (err);
+	*str->data = '-';
+	str->len = (n < 0);
+	while (mod)
 	{
-		str->len += size;
-		return (ok);
+		ft_str_push(str, (abs / mod) + '0');
+		abs %= mod;
+		mod /= 10;
 	}
-	return (err);
+	return (ok);
 }

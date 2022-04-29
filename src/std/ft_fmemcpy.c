@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_phony_realloc.c                                 :+:      :+:    :+:   */
+/*   ft_fmemcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 20:09:30 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/21 23:51:50 by clovella         ###   ########.fr       */
+/*   Created: 2021/10/11 03:51:51 by clovella          #+#    #+#             */
+/*   Updated: 2022/04/28 15:37:43 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft_std.h"
+#include <stddef.h>
 
-void	*ft_phony_realloc(void *data, size_t cur_size, size_t new_size)
+void	*ft_fmemcpy(void *restrict dest, const void *restrict src, size_t n)
 {
-	void	*new_data;
+	const char	*s;
+	char		*d;
 
-	new_data = malloc(new_size);
-	if (new_data)
+	if (!dest || !src)
+		return (0);
+	s = src;
+	d = dest;
+	while (n--)
 	{
-		if (data)
-		{
-			if (cur_size < new_size)
-				ft_memcpy(new_data, data, cur_size);
-			else
-				ft_memcpy(new_data, data, new_size);
-			free(data);
-		}
-		return (new_data);
+		d[n] = s[n];
 	}
-	return (0);
+	return (dest);
 }
+/*Compile with -O2 for use SIMD*/

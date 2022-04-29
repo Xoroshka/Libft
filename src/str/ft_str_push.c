@@ -6,18 +6,19 @@
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 22:30:35 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/21 23:51:50 by clovella         ###   ########.fr       */
+/*   Updated: 2022/04/28 10:10:17 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_str.h"
+#include "libft_vec.h"
 
-t_bool	ft_str_push(t_str *str, char c)
+t_res	ft_str_push(t_str *str, char c)
 {
-	if (ft_str_reserve(str, 1))
+	if (ft_vec_reserve(str, 1))
 	{
 		str->data[str->len] = c;
-		return (true);
+		str->len++;
+		return (ok);
 	}
-	return (false);
+	return (err);
 }

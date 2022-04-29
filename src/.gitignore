@@ -2,4 +2,5 @@
 !std
 !str
 !utils
+!vec
 !template.mod.mk

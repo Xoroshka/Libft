@@ -6,13 +6,14 @@
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 23:09:10 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/22 00:02:33 by clovella         ###   ########.fr       */
+/*   Updated: 2022/04/28 13:27:04 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_STD_H
 # define LIBFT_STD_H
 # include <stddef.h>
+# include "libft_types.h"
 
 int					ft_atoi(const char *str);
 unsigned int		ft_abs(int n);
@@ -56,4 +57,11 @@ void				ft_combsort(void *base, size_t num, size_t size,
 						int (*compare) (const void *, const void *));
 void				ft_qsort(void *base, size_t num, size_t size,
 						int (*compare) (const void *, const void *));
+void				*ft_fmemcpy(void *dest,
+						const void *src, size_t n);
+t_i64				ft_min(t_i64 a, t_i64 b);
+t_i64				ft_max(t_i64 a, t_i64 b);
+t_u64				ft_umin(t_u64 a, t_u64 b);
+t_u64				ft_umax(t_u64 a, t_u64 b);
+void				*ft_memchsize(void *data, t_u64 cur_size, t_u64 new_size);
 #endif

@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select_mem_size.c                               :+:      :+:    :+:   */
+/*   ft_vec_pop.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
+/*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 17:17:28 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 17:17:32 by clovella         ###   ########.fr       */
+/*   Created: 2022/04/28 09:57:24 by clovella          #+#    #+#             */
+/*   Updated: 2022/04/29 04:22:13 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft_types.h"
 
-size_t	ft_select_mem_size(size_t current, size_t additional)
+void	*ft_vec_pop(t_vec *vec)
 {
-	size_t	new_size;
-
-	new_size = current + additional;
-	new_size += (new_size >> 2) + (new_size >> 3);
-	new_size &= ~0xF;
-	new_size += 16;
-	return (new_size);
+	if (vec->len == 0)
+		return ((void *)err);
+	vec->len--;
+	return (vec->data + vec->len * vec->elm_size);
 }

@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_reserve_exact.c                             :+:      :+:    :+:   */
+/*   ft_str_push_i32.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 20:42:41 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/21 23:51:50 by clovella         ###   ########.fr       */
+/*   Created: 2022/02/16 03:23:39 by clovella          #+#    #+#             */
+/*   Updated: 2022/04/28 09:27:40 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft_types.h"
+#include "libft_vec.h"
+#include "libft_std.h"
 #include "libft_str.h"
-#include "libft_utils.h"
 
-t_bool	ft_str_reserve_exact(t_str *str, size_t additional)
+t_res	ft_str_push_i32(t_str *str, t_i32 n)
 {
-	char	*new_data;
-	size_t	new_size;
+	t_u32	abs;
+	t_u32	mod;
+	t_i32	i;
 
-	if (str == 0)
-		return (false);
-	if (str->cap - str->len >= additional)
-		return (true);
-	new_size = str->len + additional;
-	new_data = ft_phony_realloc(str->data, str->cap, new_size);
-	if (new_data)
+	abs = ft_abs(n);
+	mod = 1;
+	i = 0;
+	while (++i && abs / mod > 9)
+		mod *= 10;
+	if (ft_vec_reserve_exact(str, i + (n < 0)) == err)
+		return (err);
+	*str->data = '-';
+	str->len = (n < 0);
+	while (mod)
 	{
-		str->data = new_data;
-		str->cap = new_size;
-		return (true);
+		ft_str_push(str, (abs / mod) + '0');
+		abs %= mod;
+		mod /= 10;
 	}
-	return (false);
+	return (ok);
 }

@@ -6,19 +6,15 @@
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 15:43:56 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/22 00:02:33 by clovella         ###   ########.fr       */
+/*   Updated: 2022/04/28 06:14:59 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_LST_H
 # define LIBFT_LST_H
 # include <stddef.h>
+# include "libft_types.h"
 
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}	t_list;
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstadd_front(t_list **lst, t_list *new);
 void		*ft_calloc(size_t nmemb, size_t size);
