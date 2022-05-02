@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 23:09:10 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/28 13:27:04 by clovella         ###   ########.fr       */
+/*   Updated: 2022/05/02 09:25:26 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ char				*ft_strnstr(const char *s, const char *find, size_t slen);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
+t_u64				ft_tee(t_u64 *var, t_u64 data);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 void				ft_memswap(void *ptr1, void *ptr2, size_t size);
