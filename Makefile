@@ -6,7 +6,7 @@
 #    By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/17 02:59:36 by clovella          #+#    #+#              #
-#    Updated: 2022/04/29 03:34:28 by clovella         ###   ########.fr        #
+#    Updated: 2022/07/13 02:07:18 by clovella         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ include conf.mk
 
 .PHONY: all debug so clean fclean re
 
-all: $(NAME)
+all: $(NAME) debug so
 
 debug: $(DEBUG_NAME)
 
