@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:42:41 by clovella          #+#    #+#             */
-/*   Updated: 2022/09/29 05:03:09 by clovella         ###   ########.fr       */
+/*   Updated: 2022/09/29 07:22:51 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_res	ft_vec_reserve_exact(t_vec *vec, t_u64 additional)
 	if (elm_add <= 0)
 		return (ok);
 	new_data = ft_memchsize(vec->data, vec->len * vec->elm_size,
-		(vec->cap + elm_add) * vec->elm_size);
+			(vec->cap + elm_add) * vec->elm_size);
 	if (new_data)
 	{
 		vec->data = new_data;
