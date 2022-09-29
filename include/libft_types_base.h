@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:45:53 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/22 00:02:33 by clovella         ###   ########.fr       */
+/*   Updated: 2022/07/13 02:48:23 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 /*
 ###Signed Types
 */
-typedef signed char			t_i8;
-typedef signed short int	t_i16;
-typedef signed int			t_i32;
-typedef signed long int		t_i64;
+typedef char				t_i8;
+typedef short int			t_i16;
+typedef int					t_i32;
+typedef long int			t_i64;
 typedef __int128_t			t_i128;
 /*
 ###Unsigned Types

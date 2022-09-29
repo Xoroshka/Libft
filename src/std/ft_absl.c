@@ -6,13 +6,13 @@
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 03:06:35 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/29 13:32:09 by clovella         ###   ########.fr       */
+/*   Updated: 2022/07/24 19:20:17 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_types.h"
 
-t_u64	ft_absl(t_u32 n)
+t_u64	ft_absl(t_i64 n)
 {
 	t_u64	abs;
 

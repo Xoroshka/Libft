@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 11:17:53 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/29 13:28:16 by clovella         ###   ########.fr       */
+/*   Updated: 2022/09/29 04:19:29 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 t_res	ft_vec_resize(t_vec *vec, t_u64 size, const void *placeholder)
 {
-	void	*cur;
+	void	*end_of_data;
 
 	if (size < vec->len)
 	{
@@ -25,11 +25,11 @@ t_res	ft_vec_resize(t_vec *vec, t_u64 size, const void *placeholder)
 	}
 	if (ft_vec_reserve(vec, size - vec->len) == err)
 		return (err);
-	cur = vec->data + vec->len * vec->elm_size;
+	end_of_data = vec->data + vec->len * vec->elm_size;
 	while (vec->len < size)
 	{
-		ft_fmemcpy(cur, placeholder, vec->elm_size);
-		cur += vec->elm_size;
+		ft_memcpy(end_of_data, placeholder, vec->elm_size);
+		end_of_data += vec->elm_size;
 		vec->len++;
 	}
 	return (ok);

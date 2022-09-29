@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
+/*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 03:51:35 by clovella          #+#    #+#             */
-/*   Updated: 2021/11/16 02:52:17 by clovella         ###   ########.fr       */
+/*   Updated: 2022/09/29 05:31:25 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft_types_base.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, t_u64 n)
 {
-	const unsigned char	*c1 = s1;
-	const unsigned char	*c2 = s2;
+	const t_u8	*c1 = s1;
+	const t_u8	*c2 = s2;
 
 	while (n--)
 		if (*c1++ != *c2++)

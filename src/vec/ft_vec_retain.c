@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 08:49:21 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/29 11:04:35 by clovella         ###   ########.fr       */
+/*   Updated: 2022/09/29 04:42:56 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_vec_retain(t_vec *vec, t_bool (*f)(void *))
 	{
 		part = cur;
 		while (f(cur) == true && cur != end_of_vec)
-			cur += vec->elm_size;
+			cur += element_size;
 		ft_memmove(part - offset, part, cur - part);
 		while (f(cur) == false && cur != end_of_vec)
 		{

@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 03:59:53 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/28 13:31:03 by clovella         ###   ########.fr       */
+/*   Updated: 2022/07/24 15:55:32 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	**ft_split_one_alloc(char const *s, char c)
 	{
 		sub = getsub(&s, c);
 		*--tail = '\0';
-		ft_fmemcpy(tail -= sub.len, sub.ptr, sub.len);
+		ft_memcpy(tail -= sub.len, sub.ptr, sub.len);
 		arr[i] = tail;
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 20:08:49 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/28 10:15:48 by clovella         ###   ########.fr       */
+/*   Updated: 2022/07/13 02:52:00 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ typedef struct s_vec
 	t_u64	cap;
 	void	(*on_err)(void *);
 	void	*on_err_ctx;
-	t_bool	err_handl;
 }	t_vec;
 
 typedef t_vec	t_str;

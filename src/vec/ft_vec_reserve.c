@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:42:41 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/29 11:35:57 by clovella         ###   ########.fr       */
+/*   Updated: 2022/07/27 17:00:45 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,5 @@
 
 t_res	ft_vec_reserve(t_vec *vec, t_u64 additional)
 {
-	if (vec->cap - vec->len >= additional)
-		return (ok);
 	return (ft_vec_reserve_exact(vec, ft_umax(vec->cap >> 1, additional)));
 }

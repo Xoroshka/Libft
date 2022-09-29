@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clovella <clovella@student.school-21.ru    +#+  +:+       +#+        */
+/*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 03:51:51 by clovella          #+#    #+#             */
-/*   Updated: 2022/02/21 04:30:40 by clovella         ###   ########.fr       */
+/*   Updated: 2022/07/24 15:54:07 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *restrict dest, const void *restrict src, size_t n)
 {
 	const char	*s;
 	char		*d;
@@ -23,8 +23,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	d = dest;
 	while (n--)
 	{
-		*d++ = *s++;
+		d[n] = s[n];
 	}
 	return (dest);
 }
-/*Compile with -O2 for use SIMD*/
+/*Compile with -O1 or higher for use builtin memcpy*/

@@ -6,7 +6,6 @@ ft_absl.c \
 ft_bzero.c \
 ft_calloc.c \
 ft_combsort.c \
-ft_fmemcpy.c \
 ft_isalnum.c \
 ft_isalpha.c \
 ft_isascii.c \
