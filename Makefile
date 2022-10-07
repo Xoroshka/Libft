@@ -6,13 +6,13 @@
 #    By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/17 02:59:36 by clovella          #+#    #+#              #
-#    Updated: 2022/07/24 15:47:56 by clovella         ###   ########.fr        #
+#    Updated: 2022/10/07 01:15:21 by clovella         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC := clang
 CFLAGS := -Wall -Wextra -Werror
-OPTFLAGS := -O3 -march=native
+OPTFLAGS := -O3 -march=native -flto
 ARFLAGS := rs
 RM := rm -rf
 
