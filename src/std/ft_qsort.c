@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 12:24:40 by clovella          #+#    #+#             */
-/*   Updated: 2022/04/21 23:51:50 by clovella         ###   ########.fr       */
+/*   Updated: 2022/10/07 05:36:25 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,17 +75,14 @@ void	ft_qsort(void *base, size_t num, size_t size,
 	struct s_worker	data;
 	void			*m;
 
-	if (num < 16)
+	if (num < 28)
 	{
 		ft_combsort(base, num, size, compare);
 		return ;
 	}
+	m = ft_qsort_med(base, num, size, compare);
 	data.l = base;
 	data.r = base + size * (num - 1);
-	if (num > 64)
-		m = ft_qsort_med(base, num, size, compare);
-	else
-		m = base + size * (num >> 1);
 	data = ft_qsort_worker(data, m, size, compare);
 	if (data.r > base)
 		ft_qsort(base, (data.r - base) / size + 1, size, compare);
