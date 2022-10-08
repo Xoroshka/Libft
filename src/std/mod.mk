@@ -29,6 +29,7 @@ ft_qsort.c \
 ft_split_one_alloc.c \
 ft_split.c \
 ft_strchr.c \
+ft_strcmp.c \
 ft_strdup.c \
 ft_striteri.c \
 ft_strjoin.c \
