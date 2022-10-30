@@ -6,7 +6,7 @@
 /*   By: clovella <clovella@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 10:15:33 by clovella          #+#    #+#             */
-/*   Updated: 2022/10/07 06:32:51 by clovella         ###   ########.fr       */
+/*   Updated: 2022/10/26 05:39:27 by clovella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 t_res	ft_vec_append(t_vec *to, t_vec from);
 void	*ft_vec_elm(t_vec vec, t_u64 index);
-t_res	ft_vec_err_handler(t_vec *vec, void (*handler)(void *), void *context);
+void	ft_vec_err_handler(t_vec *vec, void (*handler)(void *), void *context);
 t_res	ft_vec_insert(t_vec *vec, t_u64 index, const void *item);
 t_vec	ft_vec_new(t_u64 element_size);
 void	*ft_vec_pop(t_vec *vec);
